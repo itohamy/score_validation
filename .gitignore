@@ -1,0 +1,5 @@
+#Ignore specific files
+
+#Use wildcards as well
+*~
+output/
