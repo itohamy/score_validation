@@ -1,70 +1,44 @@
 WARNING:tensorflow:From /vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/tensorflow_gan/python/estimator/tpu_gan_estimator.py:42: The name tf.estimator.tpu.TPUEstimator is deprecated. Please use tf.compat.v1.estimator.tpu.TPUEstimator instead.
 
-Num of model parameters 2212227 
+Num of model parameters 2211073 
 
-Num of model parameters 2212227 
+Num of model parameters 2211073 
 
-I0510 09:58:27.563879 140141700056832 xla_bridge.py:260] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
-I0510 09:58:27.564623 140141700056832 xla_bridge.py:260] Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: Host Interpreter
-I0510 09:58:27.565499 140141700056832 xla_bridge.py:260] Unable to initialize backend 'tpu': INVALID_ARGUMENT: TpuPlatform is not available.
-W0510 09:58:27.565687 140141700056832 xla_bridge.py:265] No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
-I0510 09:58:27.567688 140141700056832 dataset_info.py:361] Load dataset info from /home/tohamy/tensorflow_datasets/cifar10/3.0.2
-W0510 09:58:27.571753 140141700056832 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
-W0510 09:58:27.571897 140141700056832 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
-I0510 09:58:27.572169 140141700056832 dataset_builder.py:282] Reusing dataset cifar10 (/home/tohamy/tensorflow_datasets/cifar10/3.0.2)
-I0510 09:58:27.572338 140141700056832 dataset_builder.py:477] Constructing tf.data.Dataset for split train, from /home/tohamy/tensorflow_datasets/cifar10/3.0.2
-W0510 09:58:29.278545 140141700056832 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
-W0510 09:58:29.278832 140141700056832 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
-I0510 09:58:29.279063 140141700056832 dataset_builder.py:282] Reusing dataset cifar10 (/home/tohamy/tensorflow_datasets/cifar10/3.0.2)
-I0510 09:58:29.279205 140141700056832 dataset_builder.py:477] Constructing tf.data.Dataset for split test, from /home/tohamy/tensorflow_datasets/cifar10/3.0.2
-I0510 09:58:29.431276 140141700056832 run_lib.py:133] Starting training loop at step 50001.
+I0519 13:16:15.013814 139680716252928 xla_bridge.py:260] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+I0519 13:16:15.015076 139680716252928 xla_bridge.py:260] Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: Interpreter Host
+I0519 13:16:15.015818 139680716252928 xla_bridge.py:260] Unable to initialize backend 'tpu': INVALID_ARGUMENT: TpuPlatform is not available.
+W0519 13:16:15.016069 139680716252928 xla_bridge.py:265] No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+I0519 13:16:15.020470 139680716252928 dataset_info.py:361] Load dataset info from /home/tohamy/tensorflow_datasets/fashion_mnist/3.0.1
+W0519 13:16:15.026045 139680716252928 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
+W0519 13:16:15.026220 139680716252928 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
+I0519 13:16:15.026675 139680716252928 dataset_builder.py:282] Reusing dataset fashion_mnist (/home/tohamy/tensorflow_datasets/fashion_mnist/3.0.1)
+I0519 13:16:15.026876 139680716252928 dataset_builder.py:477] Constructing tf.data.Dataset for split train, from /home/tohamy/tensorflow_datasets/fashion_mnist/3.0.1
+W0519 13:16:16.789753 139680716252928 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
+W0519 13:16:16.790063 139680716252928 options.py:556] options.experimental_threading is deprecated. Use options.threading instead.
+I0519 13:16:16.790328 139680716252928 dataset_builder.py:282] Reusing dataset fashion_mnist (/home/tohamy/tensorflow_datasets/fashion_mnist/3.0.1)
+I0519 13:16:16.790479 139680716252928 dataset_builder.py:477] Constructing tf.data.Dataset for split test, from /home/tohamy/tensorflow_datasets/fashion_mnist/3.0.1
+I0519 13:16:16.941843 139680716252928 run_lib.py:133] Starting training loop at step 540001.
+
+ Start training.
+
+tensor(221.0257, device='cuda:0')
+score size: torch.Size([32, 1, 32, 32])
+
+dScore_dx size: torch.Size([32, 1024, 1024])
+
+H_size: torch.Size([32, 1024, 1024])
 Traceback (most recent call last):
-  File "main.py", line 62, in <module>
+  File "main.py", line 70, in <module>
     app.run(main)
   File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/absl/app.py", line 312, in run
     _run_main(main, args)
   File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/absl/app.py", line 258, in _run_main
     sys.exit(main(argv))
-  File "main.py", line 53, in main
+  File "main.py", line 61, in main
     run_lib.train(FLAGS.config, FLAGS.workdir)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/run_lib.py", line 172, in train
-    sample, n = sampling_fn(score_model)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/sampling.py", line 407, in pc_sampler
-    x, x_mean = predictor_update_fn(x, vec_t, model=model)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/sampling.py", line 341, in shared_predictor_update_fn
-    return predictor_obj.update_fn(x, t)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/sampling.py", line 196, in update_fn
-    f, G = self.rsde.discretize(x, t)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/sde_lib.py", line 105, in discretize
-    rev_f = f - G[:, None, None, None] ** 2 * score_fn(x, t) * (0.5 if self.probability_flow else 1.)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/models/utils.py", line 174, in score_fn
-    score = model_fn(x, labels)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/models/utils.py", line 123, in model_fn
-    return model(x, labels)
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 168, in forward
-    outputs = self.parallel_apply(replicas, inputs, kwargs)
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 178, in parallel_apply
-    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 86, in parallel_apply
-    output.reraise()
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/_utils.py", line 425, in reraise
-    raise self.exc_type(msg)
-RuntimeError: Caught RuntimeError in replica 0 on device 0.
-Original Traceback (most recent call last):
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/parallel/parallel_apply.py", line 61, in _worker
-    output = module(*input, **kwargs)
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/vilsrv-storage/tohamy/BNP/SDE/score_sde_pytorch/models/ddpm.py", line 132, in forward
-    hs = [modules[m_idx](h)]
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 443, in forward
-    return self._conv_forward(input, self.weight, self.bias)
-  File "/vilsrv-storage/dinari/miniconda3/envs/condirit/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 439, in _conv_forward
-    return F.conv2d(input, weight, bias, self.stride,
-RuntimeError: Input type (torch.cuda.DoubleTensor) and weight type (torch.cuda.FloatTensor) should be the same
-
-2022-05-10 09:58:35.475517: W tensorflow/core/kernels/data/cache_dataset_ops.cc:768] The calling iterator did not fully read the dataset being cached. In order to avoid unexpected truncation of the dataset, the partially cached contents of the dataset  will be discarded. This can happen if you have an input pipeline similar to `dataset.cache().take(k).repeat()`. You should use `dataset.take(k).cache().repeat()` instead.
+  File "/vilsrv-storage/tohamy/BNP/SDE/score_validation/run_lib.py", line 157, in train
+    loss = train_step_fn(state, batch)
+  File "/vilsrv-storage/tohamy/BNP/SDE/score_validation/losses.py", line 284, in step_fn
+    I8 = (((H_mean_abs - H_mean_abs.min()) / (H_mean_abs.max() - H_mean_abs.min())) * 255.9).astype(np.uint8)
+ZeroDivisionError: division by zero
+2022-05-19 13:32:57.801721: W tensorflow/core/kernels/data/cache_dataset_ops.cc:768] The calling iterator did not fully read the dataset being cached. In order to avoid unexpected truncation of the dataset, the partially cached contents of the dataset  will be discarded. This can happen if you have an input pipeline similar to `dataset.cache().take(k).repeat()`. You should use `dataset.take(k).cache().repeat()` instead.

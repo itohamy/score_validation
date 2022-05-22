@@ -145,6 +145,14 @@ def train(config, workdir):
     batch = batch.permute(0, 3, 1, 2)
     batch = scaler(batch)
 
+    #### DEBUG:
+    # (to work on the same batch)
+    #torch.save(batch, '/vilsrv-storage/tohamy/BNP/SDE/score_validation/output_grads/batch.pt')
+    batch = torch.load('/vilsrv-storage/tohamy/BNP/SDE/score_validation/output_grads/batch.pt')
+    batch = batch.to(config.device).float()
+    print(torch.sum(batch[0]))
+    #### END DEBUG
+
     # Execute one training step
     loss = train_step_fn(state, batch)
     

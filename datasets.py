@@ -100,6 +100,15 @@ def get_dataset(config, uniform_dequantization=False, evaluation=False):
       img = tf.image.convert_image_dtype(img, tf.float32)
       return tf.image.resize(img, [config.data.image_size, config.data.image_size], antialias=True)
 
+  elif config.data.dataset == 'FASHIONMNIST':
+    dataset_builder = tfds.builder('fashion_mnist')
+    train_split_name = 'train'
+    eval_split_name = 'test'
+
+    def resize_op(img):
+      img = tf.image.convert_image_dtype(img, tf.float32)
+      return tf.image.resize(img, [config.data.image_size, config.data.image_size], antialias=True)
+      
   elif config.data.dataset == 'SVHN':
     dataset_builder = tfds.builder('svhn_cropped')
     train_split_name = 'train'
@@ -185,6 +194,7 @@ def get_dataset(config, uniform_dequantization=False, evaluation=False):
         split=split, shuffle_files=True, read_config=read_config)
     else:
       ds = dataset_builder.with_options(dataset_options)
+
     ds = ds.repeat(count=num_epochs)
     ds = ds.shuffle(shuffle_buffer_size)
     ds = ds.map(preprocess_fn, num_parallel_calls=tf.data.experimental.AUTOTUNE)

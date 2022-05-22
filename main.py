@@ -23,6 +23,8 @@ import logging
 import os
 import tensorflow as tf
 import torch
+import numpy as np
+import random
 
 torch.cuda.empty_cache()
 
@@ -34,6 +36,12 @@ flags.DEFINE_enum("mode", None, ["train", "eval"], "Running mode: train or eval"
 flags.DEFINE_string("eval_folder", "eval",
                     "The folder name for storing evaluation results")
 flags.mark_flags_as_required(["workdir", "config", "mode"])
+
+torch.cuda.manual_seed_all(123)
+torch.manual_seed(123)
+torch.cuda.manual_seed(123)
+np.random.seed(123)
+random.seed(123)
 
 
 def main(argv):
